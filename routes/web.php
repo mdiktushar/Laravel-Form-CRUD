@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('post.create');
 });
 
-Route::resource('post', PostController::class);
+Route::group(['middleware'=>'web'], function() {
+    
+    Route::resource('post', PostController::class);
+});
